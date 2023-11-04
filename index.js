@@ -8,6 +8,7 @@ app.use(cors());
 app.use(express.json());
 app.use(require("./routes/users.route"));
 app.use(require('./routes/event.route'))
+app.use(require('./routes/admin.route'))
 
 
 mongoose
