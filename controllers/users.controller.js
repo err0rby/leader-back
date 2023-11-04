@@ -22,7 +22,8 @@ module.exports.usersController = {
     }
   },
   login: async (req, res) => {
-    const { login, password } = req.body;
+    try {
+      const { login, password } = req.body;
     const candidate = await User.findOne({ login: login });
 
     if (!candidate) {
@@ -43,6 +44,9 @@ module.exports.usersController = {
     return res.json({
       token,
     });
+    } catch (error) {
+      console.log(error);
+    }
   },
   getUsers: async (req,res) => {
     try {
